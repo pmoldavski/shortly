@@ -1,0 +1,7 @@
+<h1>Enter a url to Shorten</h1>
+
+<%= form_for(@url) do |f| %>
+  <%= f.label :url %>
+  <%= f.text_field :original %>
+  <%= f.submit "shorten!" %>
+<% end %>
