@@ -4,8 +4,14 @@ class UrlsController < ApplicationController
   end
 
   def create
-    @url = Url.create(params[:url])
-    redirect_to url_path(@url.id)
+    @url = Url.new(params[:url])
+    if @url.save
+      redirect_to url_path(@url.id)
+    else
+
+      flash[:error] = "already exists"
+      render :new
+    end
   end
 
   def show

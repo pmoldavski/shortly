@@ -1,7 +1,31 @@
-<h1>Enter a url to Shorten</h1>
+<h1>Standard Shortened url</h1>
+
+
 
 <%= form_for(@url) do |f| %>
   <%= f.label :url %>
   <%= f.text_field :original %>
+  <%= f.submit "shorten!" %>
+<% end %>
+
+
+<h1>Vanity Shortened url</h1>
+
+<%= form_for(@url) do |f| %>
+
+  <% if @url.errors.any? %>
+    <%= pluralize(@url.errors.count, "error") %> prohibited this url from being saved:<br />
+
+    <ul>
+    <% @url.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  <% end %>
+
+  <%= f.label :url %>
+  <%= f.text_field :original %>
+  <%= f.label :vanity_url %>
+  <%= f.text_field :shortened %>
   <%= f.submit "shorten!" %>
 <% end %>
