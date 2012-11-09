@@ -1,2 +1,7 @@
-<h1>Urls#index</h1>
-<p>Find me in app/views/urls/index.html.erb</p>
+<h1>List of urls</h1>
+<%= link_to "Create New Shortlink", new_url_path %><br /><br />
+
+<% @url.each do |url| %>
+  <%= url.original  %> | <%= full_short_link(url.shortened) %> | visited <%= url.visits_count %> times <br />
+
+<% end %>
