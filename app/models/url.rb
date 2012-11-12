@@ -1,5 +1,5 @@
 class Url < ActiveRecord::Base
-  attr_accessible :original, :shortened
+  attr_accessible :original, :shortened, :user_id
 
   has_many :visits
 
@@ -8,6 +8,8 @@ class Url < ActiveRecord::Base
   delegate :count, :to => :visits, :prefix => true
 
   before_create :fix_url, :create_shortened_hash
+
+  belongs_to :user
 
   private
 

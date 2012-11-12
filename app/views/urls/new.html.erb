@@ -1,8 +1,9 @@
 <h1>Standard Shortened url</h1>
 
-
+<%= current_user.id %>
 
 <%= form_for(@url) do |f| %>
+  <%= f.hidden_field :user_id, :value => current_user.id %>
   <%= f.label :url %>
   <%= f.text_field :original %>
   <%= f.submit "shorten!" %>
@@ -23,6 +24,7 @@
     </ul>
   <% end %>
 
+  <%= f.hidden_field :user_id, :value => current_user.id %>
   <%= f.label :url %>
   <%= f.text_field :original %>
   <%= f.label :vanity_url %>
