@@ -19,6 +19,10 @@ class UrlsController < ApplicationController
   end
 
   def index
-    @url = Url.all
+    if current_user
+      @url = current_user.urls
+    else
+      redirect_to new_user_session_path
+    end
   end
 end
