@@ -12,7 +12,7 @@ class Url < ActiveRecord::Base
   private
 
   def create_shortened_hash
-    self.shortened = (('a'..'z').to_a + ('A'..'Z').to_a + ('0'..'9').to_a).shuffle[0..5].join if self.shortened.empty?
+    self.shortened = (('a'..'z').to_a + ('A'..'Z').to_a + ('0'..'9').to_a).shuffle[0..5].join # if self.shortened.empty?
   end
 
   def fix_url
@@ -21,7 +21,4 @@ class Url < ActiveRecord::Base
     end
   end
 
-  # def visits_count
-  #   visits.count
-  # end
 end
