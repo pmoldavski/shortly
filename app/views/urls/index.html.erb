@@ -1,9 +1,10 @@
-<%= current_user.id %>
-
 <h1>List of urls</h1>
-<%= link_to "Create New Shortlink", new_url_path %><br /><br />
+<div id="create_new">
+  <%= link_to "New", new_url_path %><br /><br />
+</div>
 
 <% @url.each do |url| %>
-  <%= url.original  %> | <%= full_short_link(url.shortened) %> | visited <%= url.visits_count %> times <br />
-
+  <div class="link_set">
+    <%= url.original  %> | <%= full_short_link(url.shortened) %> | visited <%= url.visits_count %> times <br />
+  </div>
 <% end %>
